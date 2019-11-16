@@ -11,7 +11,9 @@ function createCards() {
       cards.push(cardObject);
     }
   }
+}
 
+function renderCards() {
   cards.forEach((card, i) => {
     const positionFromLeft = i * 26;
     const cardElement = document.createElement('div');
@@ -29,15 +31,22 @@ function createButtons() {
     const btn = document.createElement('button');
     btn.innerText = buttons[i];
     btn.classList.add('btn', 'btn-sm', 'btn-secondary');
+    btn.style.margin = '20px';
+    btn.setAttribute('id', `btn${i}`);
     buttonsWrapper.append(btn);
   });
 }
 
-// Function to start the game by clearing the wrapper, creating
-// and appending the buttons and all the cards to the DOM
+function shuffleCards() {
+  cards.sort(() => Math.random() - 0.5);
+  renderCards();
+}
+
 function startGame() {
   createCards();
+  renderCards();
   createButtons();
+  document.getElementById('btn0').addEventListener('click', shuffleCards);
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);
