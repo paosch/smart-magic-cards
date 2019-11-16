@@ -5925,14 +5925,14 @@ h1 {
 .cards-wrapper .card.spades-13 {
   background-image: url("../assets/cards/spades-13.svg");
 }
-.cards-wrapper .card:hover {
-  z-index: 50;
-}
-.cards-wrapper.hidden .card {
+.cards-wrapper .card.hidden {
   background: #00d4ff;
   background: radial-gradient(circle, #00d4ff 0%, #090979 65%, #020024 97%);
   border: 1px solid;
   border-radius: 10px;
+}
+.cards-wrapper .card:hover {
+  z-index: 50;
 }
 
 .body-bg {

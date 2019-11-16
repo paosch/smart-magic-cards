@@ -42,11 +42,24 @@ function shuffleCards() {
   renderCards();
 }
 
+function showHide() {
+  const myarr = cardsWrapper.querySelectorAll('div');
+  myarr.forEach((card) => {
+    if (card.classList.contains('hidden')) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+      cardsWrapper.classList.add('hidden');
+    }
+  });
+}
+
 function startGame() {
   createCards();
   renderCards();
   createButtons();
   document.getElementById('btn0').addEventListener('click', shuffleCards);
+  document.getElementById('btn1').addEventListener('click', showHide);
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

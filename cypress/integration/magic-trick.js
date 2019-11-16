@@ -28,8 +28,8 @@ describe('Play game', () => {
       expect(allCardClasses).to.not.deep.equal(sortedCardsClasses);
     });
 
-    // cy.contains('Show/Hide').click();
-    // cy.get('.cards-wrapper').should('have.class', 'hidden');
+    cy.contains('Show/Hide').click();
+    cy.get('.cards-wrapper').should('have.class', 'hidden');
 
     // cy.contains('Show/Hide').click();
     // cy.get('.cards-wrapper').should('not.have.class', 'hidden');
