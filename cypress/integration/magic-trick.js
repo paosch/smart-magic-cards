@@ -30,8 +30,8 @@ describe('Play game', () => {
     cy.contains('Show/Hide').click();
     cy.get('.cards-wrapper').should('have.class', 'hidden');
 
-    // cy.contains('Show/Hide').click();
-    // cy.get('.cards-wrapper').should('not.have.class', 'hidden');
+    cy.contains('Show/Hide').click();
+    cy.get('.cards-wrapper').should('not.have.class', 'hidden');
 
     // cy.contains('Magic').click();
     // cy.get('.card').then((cards) => {

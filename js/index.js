@@ -4,6 +4,7 @@ const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const buttonsWrapper = document.querySelector('.btn-wrapper');
 const buttons = ['Shuffle', 'Show/Hide', 'Magic'];
+const audio = new Audio('magic-chime-02.wav');
 
 function createCards() {
   for (let i = 0; i < suits.length; i += 1) {
@@ -23,6 +24,7 @@ function renderCards() {
     cardElement.classList.add('card', `${card.key}-${card.value}`);
     cardElement.style.left = `${positionFromLeft}px`;
     cardsWrapper.append(cardElement);
+    cardsWrapper.classList.add('sliding');
   });
 }
 
@@ -49,6 +51,7 @@ function showHide() {
   cardDivs.forEach((card) => {
     if (card.classList.contains('hidden')) {
       card.classList.remove('hidden');
+      cardsWrapper.classList.remove('hidden');
     } else {
       card.classList.add('hidden');
       cardsWrapper.classList.add('hidden');
@@ -81,6 +84,7 @@ function doMagic() {
     });
   }
   cards = groupedBySuit.flat();
+  audio.play();
   renderCards();
   setTimeout(() => { window.location.reload(); }, 2500);
 }

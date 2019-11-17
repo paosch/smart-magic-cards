@@ -10,7 +10,11 @@
     width: $card-width;
     position: absolute;
     background-size: 100%;
-    
+
+    // @for $i from 0 through 13
+    // .hearts-#{$i}
+    //   background-image: url("../assets/cards/hearts-#{$i}.svg");
+
     &.hearts-1 {
       background-image: url("../assets/cards/hearts-1.svg");
     }
