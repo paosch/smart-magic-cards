@@ -45,8 +45,8 @@ function shuffleCards() {
 }
 
 function showHide() {
-  const myarr = cardsWrapper.querySelectorAll('div');
-  myarr.forEach((card) => {
+  const cardDivs = cardsWrapper.querySelectorAll('div');
+  cardDivs.forEach((card) => {
     if (card.classList.contains('hidden')) {
       card.classList.remove('hidden');
     } else {
@@ -56,7 +56,7 @@ function showHide() {
   });
 }
 
-function doMagic() {
+function groupBySuit() {
   cards.forEach((card) => {
     if (card.key === 'hearts') {
       groupedBySuit[0].push(card);
@@ -68,6 +68,10 @@ function doMagic() {
       groupedBySuit[3].push(card);
     }
   });
+}
+
+function doMagic() {
+  groupBySuit();
   for (let i = 0; i < groupedBySuit.length; i += 1) {
     groupedBySuit[i].sort((a, b) => {
       if (a.value > b.value) {
@@ -78,16 +82,20 @@ function doMagic() {
   }
   cards = groupedBySuit.flat();
   renderCards();
-  setTimeout(() => { window.location.reload(); }, 2000);
+  setTimeout(() => { window.location.reload(); }, 2500);
+}
+
+function addEventListeners() {
+  document.getElementById('btn0').addEventListener('click', shuffleCards);
+  document.getElementById('btn1').addEventListener('click', showHide);
+  document.getElementById('btn2').addEventListener('click', doMagic);
 }
 
 function startGame() {
   createCards();
   renderCards();
   createButtons();
-  document.getElementById('btn0').addEventListener('click', shuffleCards);
-  document.getElementById('btn1').addEventListener('click', showHide);
-  document.getElementById('btn2').addEventListener('click', doMagic);
+  addEventListeners();
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

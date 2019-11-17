@@ -5769,6 +5769,7 @@ h1 {
   position: absolute;
   background-size: 100%;
 }
+
 .cards-wrapper .card.hearts-1 {
   background-image: url("../assets/cards/hearts-1.svg");
 }
@@ -5934,7 +5935,6 @@ h1 {
 .cards-wrapper .card:hover {
   z-index: 50;
 }
-
 .body-bg {
   background: #165a1c;
   background: linear-gradient(31deg, #165a1c 19%, #08380c 100%);
