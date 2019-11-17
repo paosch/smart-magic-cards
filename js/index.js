@@ -47,11 +47,7 @@ function shuffleCards() {
 }
 
 function showHide() {
-  if (cardsWrapper.classList.contains('hidden')) {
-    cardsWrapper.classList.remove('hidden');
-  } else {
-    cardsWrapper.classList.add('hidden');
-  }
+  cardsWrapper.classList.toggle('hidden');
 }
 
 function groupBySuit() {
