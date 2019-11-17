@@ -47,16 +47,11 @@ function shuffleCards() {
 }
 
 function showHide() {
-  const cardDivs = cardsWrapper.querySelectorAll('div');
-  cardDivs.forEach((card) => {
-    if (card.classList.contains('hidden')) {
-      card.classList.remove('hidden');
-      cardsWrapper.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-      cardsWrapper.classList.add('hidden');
-    }
-  });
+  if (cardsWrapper.classList.contains('hidden')) {
+    cardsWrapper.classList.remove('hidden');
+  } else {
+    cardsWrapper.classList.add('hidden');
+  }
 }
 
 function groupBySuit() {
