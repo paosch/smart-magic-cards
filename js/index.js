@@ -13,7 +13,6 @@ function createCards() {
       cards.push(cardObject);
     }
   }
-  return cards;
 }
 
 function renderCards() {
@@ -77,7 +76,6 @@ function doMagic() {
   cards = groupedBySuit.flat();
   audio.play();
   renderCards();
-  setTimeout(() => { window.location.reload(); }, 2500);
 }
 
 function addEventListeners() {
