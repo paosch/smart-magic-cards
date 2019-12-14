@@ -1,5 +1,5 @@
 let cards = [];
-const groupedBySuit = [[], [], [], []];
+let groupedBySuit = [[], [], [], []];
 const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const buttonsWrapper = document.querySelector('.btn-wrapper');
@@ -16,6 +16,7 @@ function createCards() {
 }
 
 function renderCards() {
+  cardsWrapper.innerHTML = '';
   cards.forEach((card, i) => {
     const positionFromLeft = i * 26;
     const cardElement = document.createElement('div');
@@ -64,6 +65,7 @@ function groupBySuit() {
 }
 
 function doMagic() {
+  groupedBySuit = [[], [], [], []];
   groupBySuit();
   for (let i = 0; i < groupedBySuit.length; i += 1) {
     groupedBySuit[i].sort((a, b) => {
