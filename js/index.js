@@ -52,14 +52,20 @@ function showHide() {
 
 function groupBySuit() {
   cards.forEach((card) => {
-    if (card.key === 'hearts') {
-      groupedBySuit[0].push(card);
-    } else if (card.key === 'spades') {
-      groupedBySuit[1].push(card);
-    } else if (card.key === 'diamonds') {
-      groupedBySuit[2].push(card);
-    } else {
-      groupedBySuit[3].push(card);
+    switch (card.key) {
+      case 'hearts':
+        groupedBySuit[0].push(card);
+        break;
+      case 'spades':
+        groupedBySuit[1].push(card);
+        break;
+      case 'diamonds':
+        groupedBySuit[2].push(card);
+        break;
+      case 'clubs':
+        groupedBySuit[3].push(card);
+        break;
+      // no default
     }
   });
 }
