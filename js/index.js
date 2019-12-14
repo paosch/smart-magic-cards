@@ -24,7 +24,6 @@ function renderCards() {
     cardElement.classList.add('card', `${card.key}-${card.value}`);
     cardElement.style.left = `${positionFromLeft}px`;
     cardsWrapper.append(cardElement);
-    cardsWrapper.classList.add('sliding');
   });
 }
 
