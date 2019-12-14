@@ -35,7 +35,7 @@ function createButtons() {
     btn.innerText = buttons[i];
     btn.classList.add('btn', 'btn-sm', 'btn-secondary');
     btn.style.margin = '20px';
-    btn.setAttribute('id', `btn${i}`);
+    btn.setAttribute('id', `btn-${buttons[i]}`);
     buttonsWrapper.append(btn);
   });
 }
@@ -69,7 +69,7 @@ function groupBySuit() {
   });
 }
 
-function doMagic() {
+function sortCards() {
   groupedBySuit = [[], [], [], []];
   groupBySuit();
   for (let i = 0; i < groupedBySuit.length; i += 1) {
@@ -86,9 +86,9 @@ function doMagic() {
 }
 
 function addEventListeners() {
-  document.getElementById('btn0').addEventListener('click', shuffleCards);
-  document.getElementById('btn1').addEventListener('click', showHide);
-  document.getElementById('btn2').addEventListener('click', doMagic);
+  document.getElementById('btn-Shuffle').addEventListener('click', shuffleCards);
+  document.getElementById('btn-Show/Hide').addEventListener('click', showHide);
+  document.getElementById('btn-Magic').addEventListener('click', sortCards);
 }
 
 function startGame() {
