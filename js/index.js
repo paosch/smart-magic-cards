@@ -24,7 +24,6 @@ function renderCards() {
     cardElement.classList.add('card', `${card.key}-${card.value}`);
     cardElement.style.left = `${positionFromLeft}px`;
     cardsWrapper.append(cardElement);
-    cardsWrapper.classList.add('sliding');
   });
 }
 
@@ -36,7 +35,7 @@ function createButtons() {
     btn.innerText = buttons[i];
     btn.classList.add('btn', 'btn-sm', 'btn-secondary');
     btn.style.margin = '20px';
-    btn.setAttribute('id', `btn${i}`);
+    btn.setAttribute('id', `btn-${buttons[i]}`);
     buttonsWrapper.append(btn);
   });
 }
@@ -52,19 +51,25 @@ function showHide() {
 
 function groupBySuit() {
   cards.forEach((card) => {
-    if (card.key === 'hearts') {
-      groupedBySuit[0].push(card);
-    } else if (card.key === 'spades') {
-      groupedBySuit[1].push(card);
-    } else if (card.key === 'diamonds') {
-      groupedBySuit[2].push(card);
-    } else {
-      groupedBySuit[3].push(card);
+    switch (card.key) {
+      case 'hearts':
+        groupedBySuit[0].push(card);
+        break;
+      case 'spades':
+        groupedBySuit[1].push(card);
+        break;
+      case 'diamonds':
+        groupedBySuit[2].push(card);
+        break;
+      case 'clubs':
+        groupedBySuit[3].push(card);
+        break;
+      // no default
     }
   });
 }
 
-function doMagic() {
+function sortCards() {
   groupedBySuit = [[], [], [], []];
   groupBySuit();
   for (let i = 0; i < groupedBySuit.length; i += 1) {
@@ -81,9 +86,9 @@ function doMagic() {
 }
 
 function addEventListeners() {
-  document.getElementById('btn0').addEventListener('click', shuffleCards);
-  document.getElementById('btn1').addEventListener('click', showHide);
-  document.getElementById('btn2').addEventListener('click', doMagic);
+  document.getElementById('btn-Shuffle').addEventListener('click', shuffleCards);
+  document.getElementById('btn-Show/Hide').addEventListener('click', showHide);
+  document.getElementById('btn-Magic').addEventListener('click', sortCards);
 }
 
 function startGame() {
